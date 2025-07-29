@@ -1,14 +1,15 @@
-import { useState } from "react"
-import TextInput from "./inputs/TextInput"
-import SelectInput from "./inputs/SelectInput"
-import TextAreaInput from "./inputs/TextAreaInput"
+import { useState } from "react";
+import TextInput from "./inputs/TextInput";
+import SelectInput from "./inputs/SelectInput";
+import TextAreaInput from "./inputs/TextAreaInput";
 
-function NoteForm({ notes, setNotes }) {
-    const [title, setTitle] = useState("")
-    const [priority, setPriority] = useState("Medium")
-    const [category, setCategory] = useState("Work")
-    const [description, setDescription] = useState("")
-    const [isFormVisible, setIsFormVisible] = useState(false)
+function NoteForm ( { notes, setNotes } )
+{
+    const [ title, setTitle ] = useState( "" );
+    const [ priority, setPriority ] = useState( "Medium" );
+    const [ category, setCategory ] = useState( "Work" );
+    const [ description, setDescription ] = useState( "" );
+    const [ isFormVisible, setIsFormVisible ] = useState( false );
 
     // const [formData, setFormData] = useState({
     //     title: "",
@@ -26,11 +27,13 @@ function NoteForm({ notes, setNotes }) {
     //     }))
     // }
 
-    const handleSubmit = (e) => {
-        e.preventDefault()
+    const handleSubmit = ( e ) =>
+    {
+        e.preventDefault();
         // Validation
-        if (!title || !description) {
-            return
+        if ( !title || !description )
+        {
+            return;
         }
 
         const newNote = {
@@ -39,70 +42,70 @@ function NoteForm({ notes, setNotes }) {
             priority,
             category,
             description,
-        }
+        };
 
-        setNotes([newNote, ...notes])
+        setNotes( [ newNote, ...notes ] );
 
-        setTitle("")
-        setPriority("Medium")
-        setCategory("Work")
-        setDescription("")
-    }
+        setTitle( "" );
+        setPriority( "Medium" );
+        setCategory( "Work" );
+        setDescription( "" );
+    };
 
     return (
         <>
-            {/* { Toggle Button } */}
+            {/* { Toggle Button } */ }
             <button
-                onClick={() => setIsFormVisible((prevValue) => !prevValue)}
+                onClick={ () => setIsFormVisible( ( prevValue ) => !prevValue ) }
                 className="w-full bg-gray-100 border border-gray-300 text-purple-800 py-2 rounded-lg cursor-pointer hover:bg-purple-200 hover:border-purple-300 transition mb-4"
             >
-                {isFormVisible ? "Hide Form ✖️" : "Add New Note ➕"}
+                { isFormVisible ? "Hide Form ✖️" : "Add New Note ➕" }
             </button>
-            {isFormVisible && (
-                <form className="mb-6" onSubmit={handleSubmit}>
+            { isFormVisible && (
+                <form className="mb-6" onSubmit={ handleSubmit }>
                     <TextInput
                         label="Title"
                         name="title"
-                        value={title}
-                        onChange={(e) => setTitle(e.target.value)}
+                        value={ title }
+                        onChange={ ( e ) => setTitle( e.target.value ) }
                         required
                     />
                     <SelectInput
                         label="Priority"
                         name="priority"
-                        value={priority}
-                        onChange={(e) => setPriority(e.target.value)}
-                        options={[
+                        value={ priority }
+                        onChange={ ( e ) => setPriority( e.target.value ) }
+                        options={ [
                             { value: "High", label: "🔴 High" },
                             { value: "Medium", label: "🟠 Medium" },
                             { value: "Low", label: "🟢 Low" },
-                        ]}
+                        ] }
                     />
                     <SelectInput
                         label="Category"
                         name="category"
-                        value={category}
-                        onChange={(e) => setCategory(e.target.value)}
-                        options={[
+                        value={ category }
+                        onChange={ ( e ) => setCategory( e.target.value ) }
+                        options={ [
                             { value: "Work", label: "📂 Work" },
                             { value: "Personal", label: "🏠 Personal" },
                             { value: "Ideas", label: "💡 Ideas" },
-                        ]}
+                        ] }
                     />
                     <TextAreaInput
                         label="Description"
                         name="description"
-                        value={description}
-                        onChange={(e) => setDescription(e.target.value)}
+                        value={ description }
+                        onChange={ ( e ) => setDescription( e.target.value ) }
                         required
                     />
                     <button className="w-full bg-purple-500 text-white py-2 rounded-lg cursor-pointer hover:bg-purple-600">
                         Add Note
                     </button>
                 </form>
-            )}
+            ) }
         </>
-    )
+    );
 }
 
-export default NoteForm
+export default NoteForm;
