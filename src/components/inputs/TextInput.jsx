@@ -1,4 +1,4 @@
-function TextInput({ label, name, value, onChange, required = false }) {
+function TextInput({ label, name, value, onChange, required=false }) {
     return (
         <div className="mb-4">
             <label htmlFor={name} className="block font-semibold">

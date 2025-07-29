@@ -94,7 +94,7 @@ function NoteForm({ notes, setNotes }) {
                         name="description"
                         value={description}
                         onChange={(e) => setDescription(e.target.value)}
-                        required={false}
+                        required
                     />
                     <button className="w-full bg-purple-500 text-white py-2 rounded-lg cursor-pointer hover:bg-purple-600">
                         Add Note
