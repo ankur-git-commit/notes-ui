@@ -2,7 +2,7 @@
 
 A modern, responsive note-taking application built with React and styled with Tailwind CSS. This app helps you organize your thoughts, tasks, and ideas with an intuitive interface and priority-based categorization system.
 
-![Notes App Screenshot](notes-ui.png)
+![Notes App Screenshot](notes-ui.PNG)
 
 ## ✨ Features
 
